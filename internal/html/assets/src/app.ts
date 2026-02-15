@@ -675,12 +675,95 @@ type UIShare = ParsedShare & { isHolder?: boolean };
       try {
         if (file.name.endsWith('.zip') || file.type === 'application/zip') {
           await handleBundleZip(file);
+        } else if (file.name.endsWith('.html') || file.name.endsWith('.htm')) {
+          await handleShareFromHTML(file);
         } else {
           const content = await readFileAsText(file);
           await parseAndAddShare(content, file.name);
         }
       } catch (_err) {
         errorHandlers.fileReadFailed(file.name);
+      }
+    }
+  }
+
+  async function handleShareFromHTML(file: File): Promise<void> {
+    const text = await readFileAsText(file);
+
+    // Extract PERSONALIZATION JSON from the HTML
+    const match = text.match(/window\.PERSONALIZATION\s*=\s*(\{[^\n]*\})\s*;/);
+    if (!match || !match[1]) {
+      if (elements.shareDropZone) {
+        showError(
+          t('error_no_share_message', file.name),
+          {
+            title: t('error_no_share_title'),
+            guidance: t('error_html_no_share_guidance'),
+            inline: true,
+            targetElement: elements.shareDropZone
+          }
+        );
+      }
+      return;
+    }
+
+    try {
+      const personalizationData = JSON.parse(match[1]);
+      if (!personalizationData.holderShare) {
+        if (elements.shareDropZone) {
+          showError(
+            t('error_no_share_message', file.name),
+            {
+              title: t('error_no_share_title'),
+              guidance: t('error_html_no_share_guidance'),
+              inline: true,
+              targetElement: elements.shareDropZone
+            }
+          );
+        }
+        return;
+      }
+
+      // Parse and add the share
+      const share = await parseShare(personalizationData.holderShare);
+      share.compact = await encodeCompact(share);
+
+      if (state.shares.some(s => s.index === share.index)) {
+        errorHandlers.duplicateShare(share.index);
+        return;
+      }
+
+      if (state.shares.length === 0 || (state.threshold === 0 && share.threshold > 0)) {
+        state.threshold = share.threshold;
+        state.total = share.total;
+      }
+
+      state.shares.push(share);
+      updateSharesUI();
+
+      // Also extract manifest if present and we don't already have one
+      if (personalizationData.manifestB64 && !state.manifest) {
+        const binary = atob(personalizationData.manifestB64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+        state.manifest = bytes;
+        showManifestLoaded('MANIFEST.age', state.manifest.length, 'html');
+      }
+
+      checkRecoverReady();
+    } catch {
+      if (elements.shareDropZone) {
+        showError(
+          t('error_no_share_message', file.name),
+          {
+            title: t('error_no_share_title'),
+            guidance: t('error_html_no_share_guidance'),
+            inline: true,
+            targetElement: elements.shareDropZone
+          }
+        );
       }
     }
   }

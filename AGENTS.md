@@ -207,7 +207,12 @@ Three workflows in `.github/workflows/`:
 
 ## Nix
 
-This project includes a Nix flake for reproducible development environments. If you have Nix installed:
+This project uses a Nix flake for reproducible development environments. **When a command fails to find a dependency (e.g., `esbuild`, `go`), use `nix develop -c` — do not work around it with `npx` or other alternatives.**
 
-- Prefix commands with `nix develop -c` if they fail to find dependencies (e.g., `nix develop -c make test`).
-- If `make` itself doesn't resolve correctly, use the system make directly: `/usr/bin/make`.
+```bash
+nix develop -c make build    # Build everything
+nix develop -c make test     # Run tests
+nix develop -c make test-e2e # Run Playwright tests
+```
+
+If `make` itself doesn't resolve, use `/usr/bin/make` directly.

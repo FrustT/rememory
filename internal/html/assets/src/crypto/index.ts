@@ -5,5 +5,16 @@ export { combine, recoverPassphrase, base64ToBytes, bytesToBase64 } from './sham
 export { decrypt } from './age';
 export { extractTarGz, type ExtractedFile } from './archive';
 export { parseShare, parseCompactShare, encodeCompact, type ParsedShare } from './share';
-export { decodeShareWords } from './wordlist';
+export {
+  decodeShareWords,
+  decodeWords,
+  lookupWord,
+  lookupWordInLang,
+  encodeWords,
+  getWord,
+  getWordInLang,
+  detectLanguage,
+  ALL_LANGS,
+  type Lang,
+} from './wordlist';
 export { extractBundle, type BundleContents } from './zip';
