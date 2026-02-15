@@ -681,4 +681,30 @@ test.describe('ZIP Bundle Import', () => {
     await recovery.expectDownloadVisible();
     await recovery.expectNoLoadingIndicator();
   });
+
+  test('dropping a bundle ZIP on standalone recover.html extracts manifest from inner recover.html', async ({ page }) => {
+    // Use a truly standalone recover.html (no personalization, no manifest)
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rememory-e2e-standalone-'));
+    const standaloneHtml = generateStandaloneHTML(tmpDir, 'recover');
+    const recovery = new RecoveryPage(page, tmpDir);
+    await recovery.openFile(standaloneHtml);
+
+    // Drop two bundle ZIPs — standard bundles embed the manifest in recover.html
+    // rather than including a separate MANIFEST.age file
+    await recovery.addBundleZip(bundlesDir, 'Alice');
+    await recovery.expectShareCount(1);
+
+    await recovery.addBundleZip(bundlesDir, 'Bob');
+    await recovery.expectShareCount(2);
+
+    // Manifest should be loaded (extracted from recover.html inside the ZIP)
+    await recovery.expectManifestLoaded();
+
+    // Recovery should complete
+    await recovery.expectRecoveryComplete();
+    await recovery.expectFileCount(3);
+    await recovery.expectDownloadVisible();
+
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
 });
