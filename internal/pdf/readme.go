@@ -362,7 +362,17 @@ func GenerateReadme(data ReadmeData) ([]byte, error) {
 	}
 	p.Ln(5)
 
-	// Section: CLI fallback
+	// Section: CLI fallback — keep header with content
+	{
+		// header (10) + hint text (~10) + URL (~5) + spacing (2) + usage (~10) + trailing (5) ≈ 42
+		cliBlockHeight := 42.0
+		_, pageHeight := p.GetPageSize()
+		_, _, _, bottomMargin := p.GetMargins()
+		usableBottom := pageHeight - bottomMargin
+		if p.GetY()+cliBlockHeight > usableBottom {
+			p.AddPage()
+		}
+	}
 	addSection(p, t("recover_cli"))
 	addBody(p, t("recover_cli_hint"))
 	p.SetFont(fontMono, "", monoSize)
@@ -371,7 +381,17 @@ func GenerateReadme(data ReadmeData) ([]byte, error) {
 	addBody(p, t("recover_cli_usage"))
 	p.Ln(5)
 
-	// Footer: Metadata
+	// Footer: Metadata — keep header with all metadata lines
+	{
+		// header (5) + 7 metadata lines × 4mm = 33
+		metaBlockHeight := 33.0
+		_, pageHeight := p.GetPageSize()
+		_, _, _, bottomMargin := p.GetMargins()
+		usableBottom := pageHeight - bottomMargin
+		if p.GetY()+metaBlockHeight > usableBottom {
+			p.AddPage()
+		}
+	}
 	p.SetFont(fontSans, "B", smallMono)
 	p.CellFormat(0, 5, "METADATA", "", 1, "L", false, 0, "")
 	p.SetFont(fontMono, "", smallMono)

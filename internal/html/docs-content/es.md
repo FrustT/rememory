@@ -525,12 +525,12 @@ Cada persona puede recibir su kit en su idioma preferido. Está disponible en si
 </figure>
 
 <figure class="screenshot">
-<img src="screenshots/demo-pdf-es/page-1.png" alt="recover.pdf abierto en español" onerror="this.parentElement.innerHTML='<div class=\'screenshot-placeholder\'><div class=\'icon\'>📸</div>Captura de pantalla: recover.html abierto en otro idioma (por ejemplo, español)</div>'">
+<img src="screenshots/demo-pdf/page-1.png" alt="README.pdf abierto en inglés" onerror="this.parentElement.innerHTML='<div class=\'screenshot-placeholder\'><div class=\'icon\'>📸</div>Captura de pantalla: README.pdf en otro idioma (por ejemplo, inglés)</div>'">
 <figcaption>La herramienta de recuperación se abre en el idioma seleccionado del amigo</figcaption>
 </figure>
 
 <figure class="screenshot">
-<img src="screenshots/demo-pdf-es/page-2.png" alt="recover.pdf abierto en español" onerror="this.parentElement.innerHTML='<div class=\'screenshot-placeholder\'><div class=\'icon\'>📸</div>Captura de pantalla: recover.html abierto en otro idioma (por ejemplo, español)</div>'">
+<img src="screenshots/demo-pdf/page-2.png" alt="README.pdf abierto en inglés" onerror="this.parentElement.innerHTML='<div class=\'screenshot-placeholder\'><div class=\'icon\'>📸</div>Captura de pantalla: README.pdf en otro idioma (por ejemplo, inglés)</div>'">
 <figcaption>Las listas de palabras también están traducidas (ambos idiomas funcionan)</figcaption>
 </figure>
 
