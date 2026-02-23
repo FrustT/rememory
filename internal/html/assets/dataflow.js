@@ -16,6 +16,20 @@
   // Friend names (matching the sample names from maker)
   const FRIEND_NAMES = ['Catalina', 'Matthias', 'Sophie', 'Joaquín', 'Emma'];
 
+  // Labels (translatable via window.setDataflowLabels)
+  var LABELS = {
+    yourFile: 'Your File',
+    encrypt: 'Encrypt',
+    split: 'Split',
+    combine: 'Combine',
+    recovered: 'Recovered',
+    later: 'Later: Recovery needed...'
+  };
+
+  window.setDataflowLabels = function(labels) {
+    Object.assign(LABELS, labels);
+  };
+
   // Colors
   const COLORS = {
     file: '#667eea',
@@ -165,8 +179,8 @@
       this.loopCount++;
 
       if (this.hasDistributed) {
-        // After first distribution, only loop the recovery phase
-        this.phase = 'recover';
+        // After first distribution, show the wait then loop the recovery phase
+        this.phase = 'wait';
       } else {
         // First time: start from beginning
         this.phase = 'split';
@@ -192,7 +206,7 @@
 
       const SPLIT_DURATION = 3000;
       const DISTRIBUTE_DURATION = 2000;
-      const WAIT_DURATION = this.hasDistributed ? 800 : 1500; // Shorter wait on loops
+      const WAIT_DURATION = 2500;
       const RECOVER_DURATION = 2500;
       const COMBINE_DURATION = 1500;
       const COMPLETE_DURATION = 2500;
@@ -600,14 +614,14 @@
       ctx.fillStyle = COLORS.text;
 
       // Split phase labels
-      ctx.fillText('Your File', layout.file.x, layout.file.y + offset);
+      ctx.fillText(LABELS.yourFile, layout.file.x, layout.file.y + offset);
 
       if (this.splitProgress > 0.3) {
-        ctx.fillText('Encrypt', layout.encrypt.x, layout.encrypt.y + offset);
+        ctx.fillText(LABELS.encrypt, layout.encrypt.x, layout.encrypt.y + offset);
       }
 
       if (this.splitProgress > 0.6) {
-        ctx.fillText('Split', layout.split.x, layout.split.y + offset);
+        ctx.fillText(LABELS.split, layout.split.x, layout.split.y + offset);
       }
 
       // Friends label (names shown next to each friend now)
@@ -615,13 +629,13 @@
       // Recovery phase labels
       if (this.phase === 'recover' || this.phase === 'combine' || this.phase === 'complete') {
         if (this.recoverPositions[0] > 0.3) {
-          ctx.fillText('Combine', layout.combine.x, layout.combine.y + offset);
+          ctx.fillText(LABELS.combine, layout.combine.x, layout.combine.y + offset);
         }
 
         if (this.fileRecovered) {
           ctx.fillStyle = COLORS.recovered;
           ctx.font = 'bold 12px system-ui, sans-serif';
-          ctx.fillText('Recovered!', layout.recovered.x, layout.recovered.y + offset);
+          ctx.fillText(LABELS.recovered, layout.recovered.x, layout.recovered.y + offset);
         }
 
         // Show which friends are helping (by name)
@@ -646,7 +660,7 @@
       ctx.fillStyle = COLORS.textLight;
       ctx.font = 'italic 13px system-ui, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Later: Recovery needed...', x, y);
+      ctx.fillText(LABELS.later, x, y);
     }
 
     drawNode(x, y, r, color, lightColor, alpha = 1) {

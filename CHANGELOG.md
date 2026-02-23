@@ -5,6 +5,7 @@ All notable changes to ReMemory are documented here.
 ## Unreleased
 
 - **Time-delayed recovery** — You can now set a waiting period when creating bundles. Even if your friends combine their pieces early, the files stay locked until the date you chose. Uses the [League of Entropy](https://www.cloudflare.com/en-ca/leagueofentropy/) — a distributed randomness beacon run by organizations around the world, not a single company. This is experimental: recovery requires a brief internet connection, and relies on the beacon continuing to operate. CLI: `rememory seal --timelock 30d`. Also available in the web maker under "Advanced options."
+- **Translated guide and landing page** — The guide (`docs.html`) is now available in Spanish, German, and French, each as a standalone page with its own language picker. The landing page (`index.html`) now auto-detects your browser language and switches between all seven supported languages — English, Spanish, German, French, Portuguese, Slovenian, and Traditional Chinese.
 
 ## v0.0.15 — 2026-02-21
 
