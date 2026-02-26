@@ -795,8 +795,16 @@
     if (!canvas) return;
 
     const dataflow = new DataFlowCanvas(canvas);
-    dataflow.start();
     canvas._dataflow = dataflow;
+
+    // Start when the canvas scrolls into view
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        dataflow.start();
+        observer.disconnect();
+      }
+    }, { threshold: 0.2 });
+    observer.observe(canvas);
   }
 
   if (document.readyState === 'loading') {

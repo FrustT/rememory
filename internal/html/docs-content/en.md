@@ -50,7 +50,7 @@ ReMemory takes a different approach:
 
 ## Creating Bundles {#creating}
 
-Three steps. Everything happens in your browser — your files never leave your device.
+Three steps. Everything happens in your browser — your files never leave your device. Open the [bundle creator](maker.html) to get started.
 
 ### Step 1: Add Friends {#step1}
 
@@ -125,6 +125,7 @@ Once your bundles are ready, there are a few things worth doing before you put t
 - Save your `project.yml` so you can regenerate bundles later
 - Print `README.pdf` as a paper backup before sending the digital bundle. Paper doesn't need adapters or power.
 - Set a yearly reminder to check in — see [Keeping Bundles Current](#keeping-current)
+- Consider running a [recovery drill](#recovery-drills) — it's the only way to know your plan actually works
 
 ## Recovering Files {#recovering}
 
@@ -374,6 +375,20 @@ Between updates, keep your source files in an encrypted vault — tools like [Cr
 
 Think of it like updating your emergency contacts. Brief, periodic, worth doing.
 
+### Recovery Drills {#recovery-drills}
+
+Nobody tests their backup plan. A recovery drill changes that — and it turns out, it's basically an escape room.
+
+Create a test bundle with a harmless secret (a photo, a message, a recipe). Hand out pieces to your friends. Set a [timelock](#timelock) if you want a real countdown. Then step back and let them figure it out: coordinate, combine pieces, unlock the files — without your help.
+
+What you learn:
+
+- Can your friends actually find their bundles when they need them?
+- Do they understand the instructions, or do they get stuck?
+- Can they reach each other without you coordinating?
+
+A drill that goes smoothly means your real plan will too. A drill that goes badly is a gift — you found the problem before it mattered.
+
 ### Revoking Access {#revoking-access}
 
 Once a piece has been distributed, it cannot be revoked. This is by design — there is no server, no central authority.
@@ -450,7 +465,7 @@ Each bundle includes checksums so the recovery tool can verify nothing was corru
 
 The things that *do* need to be true: your device is trusted when you create bundles, and the browser used for recovery isn't compromised. These are the same assumptions you make any time you use a computer for something important.
 
-For a detailed technical evaluation, see the [security review]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
+For a detailed technical evaluation, see the [security self-review]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
 
 ## How It Compares {#comparison}
 

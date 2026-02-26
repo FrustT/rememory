@@ -50,7 +50,7 @@ ReMemory geht einen anderen Weg:
 
 ## Pakete erstellen {#creating}
 
-Drei Schritte. Alles passiert in deinem Browser — deine Dateien verlassen dein Gerät nicht.
+Drei Schritte. Alles passiert in deinem Browser — deine Dateien verlassen dein Gerät nicht. Öffne den [Paket-Ersteller](maker.html), um loszulegen.
 
 ### Schritt 1: Freunde hinzufügen {#step1}
 
@@ -125,6 +125,7 @@ Sobald deine Pakete fertig sind, gibt es ein paar Dinge, die sich lohnen, bevor 
 - Sichere deine `project.yml`, um die Pakete später neu erstellen zu können
 - Drucke `README.pdf` als Papier-Backup aus, bevor du das digitale Paket verschickst. Papier braucht keine Adapter und keinen Strom.
 - Setze eine jährliche Erinnerung — siehe [Pakete aktuell halten](#keeping-current)
+- Erwäge eine [Wiederherstellungsübung](#recovery-drills) — nur so weißt du, ob dein Plan wirklich funktioniert
 
 ## Dateien wiederherstellen {#recovering}
 
@@ -374,6 +375,20 @@ Zwischen den Aktualisierungen bewahrst du deine Quelldateien am besten in einem 
 
 Denk daran wie ans Aktualisieren deiner Notfallkontakte. Kurz, regelmäßig, es lohnt sich.
 
+### Wiederherstellungsübung {#recovery-drills}
+
+Niemand testet seinen Notfallplan. Eine Wiederherstellungsübung ändert das — und es stellt sich heraus, dass es im Grunde ein Escape Room ist.
+
+Erstelle ein Test-Paket mit einem harmlosen Geheimnis (ein Foto, eine Nachricht, ein Rezept). Verteile die Teile an deine Freunde. Setze einen [Zeitschloss](#timelock), wenn du einen echten Countdown willst. Dann tritt zurück und lass sie es herausfinden: koordinieren, Teile zusammenführen, Dateien entsperren — ohne deine Hilfe.
+
+Was du lernst:
+
+- Können deine Freunde ihre Pakete finden, wenn sie sie brauchen?
+- Verstehen sie die Anleitung, oder kommen sie nicht weiter?
+- Können sie sich untereinander erreichen, ohne dass du vermittelst?
+
+Eine Übung, die gut läuft, bedeutet, dass dein echter Plan auch funktioniert. Eine Übung, die schiefgeht, ist ein Geschenk — du hast das Problem gefunden, bevor es wichtig war.
+
 ### Zugriff widerrufen {#revoking-access}
 
 Sobald ein Teil verteilt ist, kann er nicht zurückgerufen werden. Das ist beabsichtigt — es gibt keinen Server, keine zentrale Instanz.
@@ -450,7 +465,7 @@ Jedes Paket enthält Prüfsummen, damit das Wiederherstellungstool überprüfen 
 
 Was *tatsächlich* stimmen muss: Dein Gerät ist vertrauenswürdig, wenn du die Pakete erstellst, und der Browser, mit dem wiederhergestellt wird, ist nicht kompromittiert. Das sind dieselben Annahmen, die du jedes Mal triffst, wenn du einen Computer für etwas Wichtiges benutzt.
 
-Für eine detaillierte technische Bewertung siehe die [Sicherheitsanalyse]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
+Für eine detaillierte technische Bewertung siehe die [Sicherheits-Selbstbewertung]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
 
 ## Vergleich {#comparison}
 

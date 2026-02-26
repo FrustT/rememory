@@ -39,6 +39,12 @@
       margin-bottom: 1rem;
     }
 
+    .intro .opening-line {
+      font-size: 1.1rem;
+      color: var(--text);
+      font-style: italic;
+    }
+
     .intro .links {
       display: flex;
       gap: 1.5rem;
@@ -160,6 +166,12 @@
       color: var(--text-muted);
     }
 
+    .what-is .changelog-note {
+      margin-top: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
     /* Try it section */
     .try-it {
       background: var(--paper-light);
@@ -192,6 +204,42 @@
       font-style: italic;
     }
 
+    .try-it .docker-aside {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .try-it .docker-aside summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .try-it .docker-aside summary::-webkit-details-marker { display: none; }
+
+    .try-it .docker-aside summary .docker-whale {
+      font-style: normal;
+    }
+
+    .try-it .docker-aside .docker-content {
+      margin-top: 0.75rem;
+    }
+
+    .try-it .docker-aside pre {
+      background: var(--sand);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      overflow-x: auto;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .try-it .docker-aside .docker-content p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
     /* Trust section */
     .trust {
       background: var(--sand);
@@ -219,6 +267,39 @@
       content: "\2192";
       margin-right: 0.5rem;
       color: var(--text-muted);
+    }
+
+    /* What each person gets */
+    .bundles {
+      background: var(--paper-light);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 4px rgba(46,42,38,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .bundles h2 {
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .bundles p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0 0 0.75rem;
+    }
+
+    .bundles .screenshot {
+      margin: 1rem 0 0;
+      text-align: center;
+    }
+
+    .bundles .screenshot img {
+      max-width: 60%;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(46,42,38,0.12);
     }
 
 /* Background note */
@@ -261,6 +342,41 @@
       background: var(--paper-light);
       color: var(--text-secondary);
       cursor: pointer;
+    }
+
+    /* Next steps */
+    .next-steps {
+      text-align: center;
+      padding: 2rem 2rem 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .next-steps-prompt {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .next-steps-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .next-steps .next-step {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .next-steps .next-step:hover {
+      background: var(--paper-light);
+      border-color: var(--text-muted);
+      text-decoration: none;
     }
 
     @media (max-width: 600px) {

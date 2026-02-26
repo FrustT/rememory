@@ -276,6 +276,7 @@ ReMemory isn't the first tool to use Shamir's Secret Sharing. Its focus is makin
 | **[msolomon/keybearer](https://github.com/msolomon/keybearer)** ([site](https://michael-solomon.net/keybearer)) | Web app | Files | Layered encryption | Encrypted file download | Partial — web UI for decryption | Yes (client-side JS) | No |
 | **[RobinWeitzel/secret_sharer](https://github.com/RobinWeitzel/secret_sharer)** ([site](https://robinweitzel.de/secret_sharer/)) | Web app | Text only | Split-key AES-256 (fixed 2-of-2) | PDF with 2 QR codes + security code | Yes — scan QR codes | Yes (client-side) | No |
 | **[Bitwarden Emergency Access](https://bitwarden.com/help/emergency-access/)** | Web service | Vault items + attachments | RSA key exchange (1-of-1) | Live vault access (no file output) | Yes — web UI | No (server required) | Via Bitwarden accounts |
+| **[Apple Digital Legacy](https://support.apple.com/en-us/102631)** | Built-in (Apple) | Apple Account data | Legacy Contact designation | iCloud data access (3-year window) | Yes — Apple handles it | No (Apple servers required) | Via Apple Account |
 | **[potatoqualitee/eol-dr](https://github.com/potatoqualitee/eol-dr)** | Guide/checklist | N/A | N/A (not a tool) | [Printable checklist](https://github.com/potatoqualitee/eol-dr/blob/main/checklist.md) covering accounts, finances, subscriptions, devices | N/A | Yes (print it) | Template fields |
 
 **Key takeaways:**
@@ -285,6 +286,7 @@ ReMemory isn't the first tool to use Shamir's Secret Sharing. Its focus is makin
 - Only [eljojo/rememory](https://github.com/eljojo/rememory) includes **contact details** in each bundle so friends know how to reach each other during recovery.
 - [paritytech/banana_split](https://github.com/paritytech/banana_split) and [cyphar/paperback](https://github.com/cyphar/paperback) output **QR codes** for printing, which is great for paper-based backups of short secrets.
 - **Bitwarden Emergency Access** is fundamentally different — it delegates vault access to one trusted person (not M-of-N splitting) and requires an online service.
+- **Apple Digital Legacy** only activates after death (requires proof of death documents) — it does not cover incapacity, memory loss, or other scenarios. Limited to Apple ecosystem (iCloud data, not Keychain passwords). Access expires after 3 years.
 - [potatoqualitee/eol-dr](https://github.com/potatoqualitee/eol-dr) is not a tool but a valuable **end-of-life planning [checklist](https://github.com/potatoqualitee/eol-dr/blob/main/checklist.md)** covering accounts, finances, subscriptions, and devices — complementary to any tool here.
 - [ssss](http://point-at-infinity.org/ssss/) is the classic Unix implementation but is limited to 128 ASCII characters and requires a terminal.
 - GitHub offers a [successor feature](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/maintaining-ownership-continuity-of-your-personal-accounts-repositories) for maintaining ownership continuity of repositories — useful for ensuring your code projects remain accessible.

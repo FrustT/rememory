@@ -110,6 +110,7 @@ func TestStaticHTMLNoUnexpectedURLs(t *testing.T) {
 		// project URLs
 		"https://github.com/eljojo/rememory",
 		"https://eljojo.github.io/rememory",
+		"https://eljojo.net", // author homepage
 
 		// docs: linked in user-facing documentation and index.html
 		"https://github.com/FiloSottile/age", // age encryption library
@@ -135,6 +136,7 @@ func TestStaticHTMLNoUnexpectedURLs(t *testing.T) {
 		"https://es.wikipedia.org",
 		"https://de.wikipedia.org",
 		"https://fr.wikipedia.org",
+		"https://pt.wikipedia.org",
 		"https://zh.wikipedia.org",
 	}
 

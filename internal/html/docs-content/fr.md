@@ -50,7 +50,7 @@ ReMemory prend un chemin différent :
 
 ## Créer des enveloppes {#creating}
 
-Trois étapes. Tout se passe dans votre navigateur — vos fichiers ne quittent jamais votre appareil.
+Trois étapes. Tout se passe dans votre navigateur — vos fichiers ne quittent jamais votre appareil. Ouvrez le [créateur d'enveloppes](maker.html) pour commencer.
 
 ### Étape 1 : Ajouter des amis {#step1}
 
@@ -125,6 +125,7 @@ Une fois vos enveloppes prêtes, quelques choses valent la peine d'être faites 
 - Sauvegardez votre `project.yml` pour pouvoir recréer les enveloppes plus tard
 - Imprimez `README.pdf` comme sauvegarde papier avant d'envoyer l'enveloppe numérique. Le papier n'a besoin ni d'adaptateur, ni d'électricité.
 - Programmez un rappel annuel — voir [Garder les enveloppes à jour](#keeping-current)
+- Envisagez un [exercice de récupération](#recovery-drills) — c'est le seul moyen de savoir si votre plan fonctionne vraiment
 
 ## Récupérer des fichiers {#recovering}
 
@@ -374,6 +375,20 @@ Entre les mises à jour, conservez vos fichiers sources dans un coffre chiffré 
 
 Pensez-y comme la mise à jour de vos contacts d'urgence. Bref, régulier, utile.
 
+### Exercice de récupération {#recovery-drills}
+
+Personne ne teste son plan de secours. Un exercice de récupération change ça — et il s'avère que c'est essentiellement un escape room.
+
+Créez une enveloppe de test avec un secret anodin (une photo, un message, une recette). Distribuez les parts à vos amis. Ajoutez un [verrouillage temporel](#timelock) si vous voulez un vrai compte à rebours. Puis prenez du recul et laissez-les se débrouiller : se coordonner, rassembler les parts, déverrouiller les fichiers — sans votre aide.
+
+Ce que vous apprendrez :
+
+- Vos amis retrouvent-ils leurs enveloppes quand ils en ont besoin ?
+- Comprennent-ils les instructions, ou restent-ils bloqués ?
+- Peuvent-ils se contacter entre eux sans que vous coordonniez ?
+
+Un exercice qui se passe bien signifie que votre vrai plan fonctionnera aussi. Un exercice qui se passe mal est un cadeau — vous avez trouvé le problème avant qu'il ne compte.
+
 ### Révoquer l'accès {#revoking-access}
 
 Une fois qu'une part a été distribuée, elle ne peut pas être révoquée. C'est voulu — il n'y a pas de serveur, pas d'autorité centrale.
@@ -450,7 +465,7 @@ Chaque enveloppe inclut des sommes de contrôle pour que l'outil de récupérati
 
 Ce qui *doit* être vrai : votre appareil est fiable au moment de créer les enveloppes, et le navigateur utilisé pour la récupération n'est pas compromis. Ce sont les mêmes hypothèses que vous faites chaque fois que vous utilisez un ordinateur pour quelque chose d'important.
 
-Pour une évaluation technique détaillée, consultez l'[analyse de sécurité]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
+Pour une évaluation technique détaillée, consultez l'[auto-évaluation de sécurité]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
 
 ## Comparaison {#comparison}
 

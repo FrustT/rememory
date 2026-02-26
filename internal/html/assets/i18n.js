@@ -37,7 +37,16 @@ function setLanguage(lang) {
     document.title = translatedTitle;
   }
 
-  // Update docs links to point to the correct language variant
+  // Re-render dynamic content
+  if (typeof window.rememoryUpdateUI === 'function') {
+    window.rememoryUpdateUI();
+  }
+
+  {{SET_LANGUAGE_EXTRA}}
+
+  // Update docs links to point to the correct language variant.
+  // This runs after SET_LANGUAGE_EXTRA so that links injected via
+  // data-i18n-html (innerHTML) are also rewritten.
   if (typeof docsLangs !== 'undefined') {
     const docsFile = (lang !== 'en' && docsLangs.indexOf(lang) !== -1)
       ? 'docs.' + lang + '.html' : 'docs.html';
@@ -46,13 +55,6 @@ function setLanguage(lang) {
       a.setAttribute('href', h.replace(/docs(?:\.[a-z]{2})?\.html/, docsFile));
     });
   }
-
-  // Re-render dynamic content
-  if (typeof window.rememoryUpdateUI === 'function') {
-    window.rememoryUpdateUI();
-  }
-
-  {{SET_LANGUAGE_EXTRA}}
 }
 
 // Set initial language immediately

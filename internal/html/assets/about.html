@@ -7,11 +7,14 @@
           </select>
         </div>
       </div>
+      <p class="summary opening-line" data-i18n="opening">
+        ReMemory started with a question I couldn't stop thinking about: what happens to my digital life if something happens to me?
+      </p>
       <p class="summary" data-i18n-html="summary_1">
-        ReMemory protects your files by splitting a key among people you trust.
-        You decide how many must come together to unlock them — three of five friends, two of two partners, whatever fits.
-        No single person can access anything alone. Based on
+        It encrypts your files and divides the key among people you trust, using
         <a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing" target="_blank">Shamir's Secret Sharing</a>.
+        You decide how many must come together to recover them — three of five, two of two, whatever fits.
+        No single person can access anything alone.
       </p>
       <p class="summary" data-i18n-html="summary_2">
         Each person gets a bundle with everything they need to recover.
@@ -24,9 +27,22 @@
       </div>
     </section>
 
+    <section class="background">
+      <h2 data-i18n="bg_title">Why I built this</h2>
+      <p data-i18n-html="bg_2">
+        When I watched <a href="https://www.youtube.com/watch?v=k_P7Y0-wgos" target="_blank">a documentary about Clive Wearing</a>, a man who has lived with severe amnesia since 1985, it changed how I thought about my own digital life. Memory is more fragile than we like to believe.
+      </p>
+      <p data-i18n-html="bg_3">
+        I've had several concussions from cycling accidents. Each time, I've been lucky to recover fully — but the reminders add up.
+      </p>
+      <p data-i18n-html="bg_4">
+        ReMemory came out of that: a way to make sure the people I trust can access what matters — without putting all of that weight on any one of them.
+      </p>
+    </section>
+
     <section class="how-it-works">
       <h2 data-i18n="how_title">How it works</h2>
-      <p class="subtitle" data-i18n="how_subtitle">Your files are encrypted. The key is split into pieces. When enough people bring their pieces together, the files are unlocked.</p>
+      <p class="subtitle" data-i18n-html="how_subtitle">You choose who to trust and how many must agree. Your files are encrypted, the key is split into pieces, and each person keeps one. When enough of them come together, the files are unlocked.</p>
 
       <div class="dataflow-container">
         <canvas id="dataflow-canvas"></canvas>
@@ -41,6 +57,53 @@
           <strong>Any 3 friends</strong> &#x2192; <strong>Combine pieces</strong> &#x2192; <strong>Unlock</strong> &#x2192; <strong>File recovered</strong>
         </p>
       </div>
+    </section>
+
+    <section class="bundles">
+      <h2 data-i18n="bundles_title">What each person gets</h2>
+      <p data-i18n-html="bundles_desc">
+        Each person receives a self-contained bundle — a ZIP file with a recovery tool that works in any browser, offline, with no installation. If this project disappears, recovery still works.
+      </p>
+      <p data-i18n-html="bundles_contacts">
+        Every bundle includes contact details for the other people involved, so they can coordinate without you.
+      </p>
+      <figure class="screenshot">
+        <img src="screenshots/demo-pdf/page-1.png" alt="Example PDF from a bundle — recovery words, contact list, and instructions">
+      </figure>
+    </section>
+
+    <section class="trust">
+      <h2 data-i18n="trust_title">On trust and verification</h2>
+      <ul>
+        <li data-i18n-html="trust_6">Encryption uses <a href="https://github.com/FiloSottile/age" target="_blank">age</a> — a modern, well-regarded tool</li>
+        <li data-i18n="trust_1">Recovery works without this project existing — each bundle is self-contained</li>
+        <li data-i18n="trust_4">Everything runs locally. Your files never leave your device</li>
+        <li data-i18n-html="trust_2">The code is open source — <a href="{{GITHUB_REPO}}" target="_blank">read it on GitHub</a></li>
+        <li data-i18n-html="trust_3">A <a href="{{GITHUB_REPO}}/blob/main/docs/security-review.md" target="_blank">security self-review</a> explains the cryptographic choices</li>
+        <li data-i18n-html="trust_7">Read more about <a href="docs.html#cryptography">what protects your data</a> and <a href="docs.html#what-could-go-wrong">what could go wrong</a></li>
+      </ul>
+    </section>
+
+    <section class="try-it">
+      <h2 data-i18n="try_title">See how it works</h2>
+      <ol>
+        <li data-i18n-html="try_step_1"><a href="{{GITHUB_REPO}}/releases/latest/download/demo-bundles.zip">Download the demo bundles</a></li>
+        <li data-i18n-html="try_step_2">Open <code>bundle-alice/recover.html</code> in your browser</li>
+        <li data-i18n="try_step_3">Drag Bob's and Camila's README files onto the page</li>
+        <li data-i18n="try_step_4">When enough pieces are added, the files unlock</li>
+      </ol>
+      <p class="note" data-i18n="try_note">This is the closest thing to what a real recovery feels like.</p>
+      <details class="docker-aside">
+        <summary data-i18n-html="try_docker_summary">Self-hosting? <span class="docker-whale">&#128051;</span></summary>
+        <div class="docker-content">
+          <pre><code>docker run -d \
+  --name rememory \
+  -p 8080:8080 \
+  -v rememory-data:/data \
+  ghcr.io/eljojo/rememory:latest</code></pre>
+          <p data-i18n-html="try_docker_link">See the <a href="https://github.com/eljojo/rememory/blob/main/docs/selfhosted.md" target="_blank">self-hosting guide</a> for details.</p>
+        </div>
+      </details>
     </section>
 
     <section class="what-is">
@@ -65,45 +128,13 @@
           </ul>
         </div>
       </div>
+      <p class="changelog-note" data-i18n-html="bg_changelog">ReMemory keeps growing. Check the <a href="{{GITHUB_REPO}}/blob/main/CHANGELOG.md" target="_blank">changelog</a> to see what's new.</p>
     </section>
 
-    <section class="try-it">
-      <h2 data-i18n="try_title">See how it works</h2>
-      <ol>
-        <li data-i18n-html="try_step_1"><a href="{{GITHUB_REPO}}/releases/latest/download/demo-bundles.zip">Download the demo bundles</a></li>
-        <li data-i18n-html="try_step_2">Open <code>bundle-alice/recover.html</code> in your browser</li>
-        <li data-i18n="try_step_3">Drag Bob's and Camila's README files onto the page</li>
-        <li data-i18n="try_step_4">When enough pieces are added, the files unlock</li>
-      </ol>
-      <p class="note" data-i18n="try_note">This is the closest thing to what a real recovery feels like.</p>
-    </section>
-
-    <section class="trust">
-      <h2 data-i18n="trust_title">On trust and verification</h2>
-      <ul>
-        <li data-i18n="trust_1">Recovery works without this project existing — each bundle is self-contained</li>
-        <li data-i18n-html="trust_2">The code is open source — <a href="{{GITHUB_REPO}}" target="_blank">read it on GitHub</a></li>
-        <li data-i18n-html="trust_3">A <a href="{{GITHUB_REPO}}/blob/main/docs/security-review.md" target="_blank">security review</a> explains the cryptographic choices</li>
-        <li data-i18n="trust_4">Everything runs locally. Your files never leave your device</li>
-        <li data-i18n="trust_5">Try the demo bundles before using it with anything important</li>
-        <li data-i18n-html="trust_6">Encryption uses <a href="https://github.com/FiloSottile/age" target="_blank">age</a> — a modern, well-regarded tool</li>
-        <li data-i18n-html="trust_7">Read more about <a href="docs.html#cryptography">what protects your data</a> and <a href="docs.html#what-could-go-wrong">what could go wrong</a></li>
-      </ul>
-    </section>
-
-    <section class="background">
-      <h2 data-i18n="bg_title">Why I built this</h2>
-      <p data-i18n="bg_1">
-        Two things led me to build ReMemory.
-      </p>
-      <p data-i18n-html="bg_2">
-        First, I watched <a href="https://www.youtube.com/watch?v=k_P7Y0-wgos" target="_blank">a documentary about Clive Wearing</a>, a man who has lived with severe amnesia since 1985. Seeing how fragile memory can be made me think about what would happen to my digital life if something similar happened to me.
-      </p>
-      <p data-i18n="bg_3">
-        Second, I've had several concussions from cycling accidents. Each time, I've been lucky to recover fully — but the reminders add up.
-      </p>
-      <p data-i18n="bg_4">
-        ReMemory came out of that: a way to ensure the people I trust can access what matters, even if I can't help them.
-      </p>
-      <p data-i18n-html="bg_changelog">ReMemory keeps growing. Check the <a href="{{GITHUB_REPO}}/blob/main/CHANGELOG.md" target="_blank">changelog</a> to see what's new.</p>
-    </section>
+    <nav class="next-steps">
+      <p class="next-steps-prompt" data-i18n="closing_prompt">When you're ready</p>
+      <div class="next-steps-links">
+        <a href="docs.html" class="next-step" data-i18n="link_guide">Read the guide</a>
+        <a href="maker.html" class="next-step" data-i18n="link_create">Create bundles</a>
+      </div>
+    </nav>

@@ -1,0 +1,16 @@
+# ReMemory — https://eljojo.github.io/rememory/
+# Self-hosting guide: https://github.com/eljojo/rememory/blob/main/docs/selfhosted.md
+
+services:
+  rememory:
+    image: ghcr.io/eljojo/rememory:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - rememory-data:/data
+    restart: unless-stopped
+    # environment:
+    #   REMEMORY_MAX_MANIFEST_SIZE: 200MB
+
+volumes:
+  rememory-data:

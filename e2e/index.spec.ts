@@ -57,7 +57,7 @@ test.describe('Landing Page', () => {
     await expect(page.locator('.how-it-works h2')).toContainText('Cómo funciona');
     await expect(page.locator('.what-is h2')).toContainText('Qué es y qué no es');
     await expect(page.locator('.try-it h2')).toContainText('Mira cómo funciona');
-    await expect(page.locator('.background h2')).toContainText('Por qué construí esto');
+    await expect(page.locator('.background h2')).toContainText('Por qué hice esto');
   });
 
   test('language preference persists via localStorage', async ({ page }) => {

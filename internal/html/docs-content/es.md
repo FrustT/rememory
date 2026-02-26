@@ -50,7 +50,7 @@ ReMemory toma un camino diferente:
 
 ## Crear kits {#creating}
 
-Tres pasos. Todo ocurre en tu navegador — tus archivos nunca salen de tu dispositivo.
+Tres pasos. Todo ocurre en tu navegador — tus archivos nunca salen de tu dispositivo. Abre el [creador de kits](maker.html) para comenzar.
 
 ### Paso 1: Agregar amigos {#step1}
 
@@ -125,6 +125,7 @@ Una vez que tus kits están listos, hay algunas cosas que vale la pena hacer ant
 - Guarda tu `project.yml` para poder regenerar los kits más adelante
 - Imprime `README.pdf` como respaldo en papel antes de enviar el kit digital. El papel no necesita adaptadores ni electricidad.
 - Pon un recordatorio anual para verificar — consulta [Mantener los kits actualizados](#keeping-current)
+- Considera hacer un [simulacro de recuperación](#recovery-drills) — es la única forma de saber si tu plan realmente funciona
 
 ## Recuperar archivos {#recovering}
 
@@ -374,6 +375,20 @@ Entre actualizaciones, guarda tus archivos fuente en una bóveda cifrada — her
 
 Piénsalo como actualizar tus contactos de emergencia. Breve, periódico, vale la pena hacerlo.
 
+### Simulacros de recuperación {#recovery-drills}
+
+Nadie prueba su plan de respaldo. Un simulacro de recuperación cambia eso — y resulta que es básicamente un escape room.
+
+Crea un kit de prueba con un secreto inofensivo (una foto, un mensaje, una receta). Reparte las partes a tus amigos. Pon un [bloqueo por fecha](#timelock) si quieres una cuenta regresiva real. Después aléjate y déjalos resolver: coordinarse, combinar partes, desbloquear los archivos — sin tu ayuda.
+
+Lo que aprendes:
+
+- ¿Pueden tus amigos encontrar sus kits cuando los necesitan?
+- ¿Entienden las instrucciones, o se quedan atascados?
+- ¿Pueden contactarse entre ellos sin que tú coordines?
+
+Un simulacro que sale bien significa que tu plan real también funcionará. Un simulacro que sale mal es un regalo — encontraste el problema antes de que importara.
+
 ### Revocar acceso {#revoking-access}
 
 Una vez que una parte ha sido distribuida, no se puede revocar. Esto es por diseño — no hay servidor, no hay autoridad central.
@@ -450,7 +465,7 @@ Cada kit incluye sumas de verificación para que la herramienta de recuperación
 
 Lo que *sí* necesita ser verdad: que tu dispositivo sea confiable cuando creas los kits, y que el navegador usado para recuperar no esté comprometido. Son las mismas suposiciones que haces cada vez que usas una computadora para algo importante.
 
-Para una evaluación técnica detallada, consulta la [revisión de seguridad]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
+Para una evaluación técnica detallada, consulta la [autoevaluación de seguridad]({{GITHUB_REPO}}/blob/main/docs/security-review.md).
 
 ## Cómo se compara {#comparison}
 
