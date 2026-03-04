@@ -26,11 +26,12 @@ const (
 	LangSL    Lang = "sl"
 	LangPT    Lang = "pt"
 	LangZH_TW Lang = "zh-TW"
+	LangCA    Lang = "ca"
 )
 
 // AllLangs returns all supported word list languages.
 func AllLangs() []Lang {
-	return []Lang{LangEN, LangES, LangFR, LangDE, LangSL, LangPT, LangZH_TW}
+	return []Lang{LangEN, LangES, LangFR, LangDE, LangSL, LangPT, LangZH_TW, LangCA}
 }
 
 // WordListInfo describes a BIP39 word list: its source, expected hash, and words.
@@ -62,6 +63,7 @@ var wordListSpecs = []wordListSpec{
 	{LangSL, "wordlists/slovenian.txt", "https://github.com/StellarStoic/BIP39_Exotica/8a5c0d93be825fab837dd293c94c635d6a39aa70/main/WRDL/nonStandard/slovenian.txt", "bdc73f14501843be9ae38fea61d6070298df4a83c67a8710e9755c557880467a"},
 	{LangPT, "wordlists/portuguese.txt", "https://github.com/bitcoin/bips/blob/ed7af6ae7e80c90bcfc69b3936073505e2fc2503/bip-0039/portuguese.txt", "2685e9c194c82ae67e10ba59d9ea5345a23dc093e92276fc5361f6667d79cd3f"},
 	{LangZH_TW, "wordlists/chinese_traditional.txt", "https://github.com/bitcoin/bips/blob/7d77befd2b14359b9386fc1f9fb15f82d418fb34/bip-0039/chinese_traditional.txt", "417b26b3d8500a4ae3d59717d7011952db6fc2fb84b807f3f94ac734e89c1b5f"},
+	{LangCA, "wordlists/spanish.txt", "https://github.com/bitcoin/bips/blob/ed7af6ae7e80c90bcfc69b3936073505e2fc2503/bip-0039/spanish.txt", "46846a5a0139d1e3cb77293e521c2865f7bcdb82c44e8d0a06a2cd0ecba48c0b"},
 }
 
 var (
