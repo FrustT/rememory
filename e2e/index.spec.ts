@@ -92,12 +92,10 @@ test.describe('Landing Page', () => {
     // Switch to Spanish
     await page.locator('#lang-select').selectOption('es');
 
-    // Elements with data-i18n-html should render HTML (links, spans)
-    // The summary should contain a link to Wikipedia
+    // Elements with data-i18n-html should render HTML (strong tags, spans)
     const summary = page.locator('[data-i18n-html="summary_1"]');
-    const link = summary.locator('a');
-    await expect(link).toBeAttached();
-    expect(await link.getAttribute('href')).toContain('wikipedia.org');
+    const strong = summary.locator('strong');
+    await expect(strong.first()).toBeAttached();
   });
 
   test('footer links are present', async ({ page }) => {
