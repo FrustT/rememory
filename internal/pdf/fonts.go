@@ -28,19 +28,46 @@ var dejaVuSansMonoRegular []byte
 //go:embed fonts/DejaVuSansMono-Bold.ttf
 var dejaVuSansMonoBold []byte
 
+// Noto Sans SC font files (SIL Open Font License - see fonts/LICENSE-NotoSansSC.txt)
+// These provide CJK (Chinese, Japanese, Korean) glyph coverage.
+
+//go:embed fonts/NotoSansSC-Regular.ttf
+var notoSansSCRegular []byte
+
+//go:embed fonts/NotoSansSC-Bold.ttf
+var notoSansSCBold []byte
+
 // Font family names used throughout the PDF generator.
 const (
 	fontSans = "DejaVuSans"
 	fontMono = "DejaVuSansMono"
 )
 
-// registerUTF8Fonts adds the embedded DejaVu Sans UTF-8 fonts to the PDF instance.
+// isCJKLanguage reports whether a language code requires CJK glyphs.
+func isCJKLanguage(lang string) bool {
+	switch lang {
+	case "zh-TW", "zh-CN", "zh", "ja", "ko":
+		return true
+	}
+	return false
+}
+
+// registerUTF8Fonts adds the embedded UTF-8 fonts to the PDF instance.
+// When lang is a CJK language, Noto Sans SC is registered under fontSans
+// so that Chinese/Japanese/Korean text renders correctly.
 // After calling this, use fontSans and fontMono as the family name in SetFont().
-func registerUTF8Fonts(pdf *fpdf.Fpdf) {
-	pdf.AddUTF8FontFromBytes(fontSans, "", dejaVuSansRegular)
-	pdf.AddUTF8FontFromBytes(fontSans, "B", dejaVuSansBold)
-	pdf.AddUTF8FontFromBytes(fontSans, "I", dejaVuSansOblique)
-	pdf.AddUTF8FontFromBytes(fontSans, "BI", dejaVuSansBoldOblique)
+func registerUTF8Fonts(pdf *fpdf.Fpdf, lang string) {
+	if isCJKLanguage(lang) {
+		pdf.AddUTF8FontFromBytes(fontSans, "", notoSansSCRegular)
+		pdf.AddUTF8FontFromBytes(fontSans, "B", notoSansSCBold)
+		pdf.AddUTF8FontFromBytes(fontSans, "I", notoSansSCRegular)
+		pdf.AddUTF8FontFromBytes(fontSans, "BI", notoSansSCBold)
+	} else {
+		pdf.AddUTF8FontFromBytes(fontSans, "", dejaVuSansRegular)
+		pdf.AddUTF8FontFromBytes(fontSans, "B", dejaVuSansBold)
+		pdf.AddUTF8FontFromBytes(fontSans, "I", dejaVuSansOblique)
+		pdf.AddUTF8FontFromBytes(fontSans, "BI", dejaVuSansBoldOblique)
+	}
 
 	pdf.AddUTF8FontFromBytes(fontMono, "", dejaVuSansMonoRegular)
 	pdf.AddUTF8FontFromBytes(fontMono, "B", dejaVuSansMonoBold)
