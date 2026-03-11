@@ -24,7 +24,7 @@
   "recover_step2_drag": "- Sleep het in de pagina, OF",
   "recover_step2_click": "- Klik om het te zoeken en selecteren",
   "recover_step2_embedded": "2. De encryptiegegevens zijn reeds ingevoerd — verdere handeling is niet vereist.",
-  "recover_step2_embedded_hint": "Bepaalt u zich tot een alternatieve methode, laad dan de inliggende recover.html via uw verkozen herstelprogramma.",
+  "recover_step2_embedded_hint": "Gebruikt u een ander herstelprogramma, sleep dan dit recover.html bestand daarin.",
   "recover_step3_contact": "3. U ziet een contactlijst van de andere vertrouwenspersonen met een fragment",
   "recover_step3_ask": "Neem contact met hen op en vraag om hun README.txt bestand",
   "recover_step4": "4. Voor elk ontvangen README.txt-bestand van een vertrouwenspersoon:",
@@ -40,7 +40,7 @@
   "recover_anon_step5": "5. Download de herstelde bestanden",
   "recover_offline": "Werkt volledig offline — er is geen internetverbinding vereist.",
   "recover_offline_tlock": "Voor herstel is een korte internetverbinding nodig.",
-  "recover_cli": "INSTRUCTIES VOOR HERSTEL (SECUNDAIRE METHODE - Command-Line Interface)",
+  "recover_cli": "INSTRUCTIES VOOR HERSTEL (SECUNDAIRE METHODE - CLI)",
   "recover_cli_hint": "Als recover.html niet werkt, download dan de CLI-tool via:",
   "recover_cli_usage": "Gebruik: rememory recover share1.txt share2.txt ... --manifest recover.html",
   "your_share": "DIT IS UW TOEGEWEZEN FRAGMENT",
@@ -60,7 +60,7 @@
   "lang_nl": "Nederlands",
   "machine_readable": "TEXT FORMAAT (voor invoer in het herstelprogramma):",
   "qr_caption": "Scan met uw camera om de herstelcode te importeren.",
-  "recovery_rule": "GELDENDE NORMERING VOOR DE HERSTELPROCEDURE",
+  "recovery_rule": "HERSTELVEREISTE",
   "recovery_rule_count": "Ten minste {0} van de {1} personen vereist",
   "readme_filename": "LEES_DIT_ZORGVULDIG"
 }
