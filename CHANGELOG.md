@@ -4,8 +4,13 @@ All notable changes to ReMemory are documented here.
 
 ## Unreleased
 
+- **Turkish language support** — Added Turkish as a supported language. Thanks @FrustT!
+- **Bundles now work across operating systems** — Archives created on Windows now extract correctly everywhere, and vice versa.
+- **Docker security** — The Docker image now runs as a non-root user.
+
 ## v0.0.18 — 2026-03-16
 
+- **Italian language support** — Added Italian as a supported language. Thanks @xushidev!
 - **Docker on arm64** — The Docker image now ships for both amd64 and arm64. `docker pull` picks the right one automatically.
 
 ## v0.0.17 — 2026-03-11
